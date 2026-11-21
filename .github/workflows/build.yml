@@ -1,3 +1,4 @@
+
 name: Build Seamless APK
 
 on:
@@ -30,6 +31,12 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          cmdline-tools-version: 11076708
+          packages: |
+            platform-tools
+            platforms;android-35
+            build-tools;35.0.0
 
       - name: Build APK
         run: gradle assembleDebug
